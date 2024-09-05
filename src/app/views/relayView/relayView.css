@@ -1,0 +1,22 @@
+.cardOn {
+    background-color: #99CCFF;
+    border-radius: 50%;
+    margin: 2
+  }
+
+  .cardOff {
+    background-color: #FF3333;
+    border-radius: 50%;
+    margin: 2
+  }
+
+  .cardUndefined {
+    background-color: gray;
+    border-radius: 50%;
+    margin: 2
+  }
+
+  .title {
+    font-size: 20;
+    text-align: center;
+  }

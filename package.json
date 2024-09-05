@@ -1,0 +1,47 @@
+{
+  "name": "smartHome",
+  "main": "./src/main.ts",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~13.2.0",
+    "@angular/common": "~13.2.0",
+    "@angular/compiler": "~13.2.0",
+    "@angular/core": "~13.2.0",
+    "@angular/forms": "~13.2.0",
+    "@angular/platform-browser": "~13.2.0",
+    "@angular/platform-browser-dynamic": "~13.2.0",
+    "@angular/router": "~13.2.0",
+    "@nativescript/angular": "^13.0.0",
+    "@nativescript/core": "~8.2.0",
+    "@nativescript/theme": "~3.0.2",
+    "@nativescript/unit-test-runner": "^3.0.3",
+    "nativescript-couchbase": "^1.0.18",
+    "nativescript-ui-listview": "^10.1.1",
+    "rxjs": "~7.5.0",
+    "zone.js": "~0.11.5"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~13.2.0",
+    "@angular/compiler-cli": "~13.2.0",
+    "@jsdevtools/coverage-istanbul-loader": "3.0.5",
+    "@nativescript/android": "8.2.2",
+    "@nativescript/ios": "8.2.3",
+    "@nativescript/types": "~8.2.0",
+    "@nativescript/webpack": "~5.0.6",
+    "@ngtools/webpack": "~13.2.0",
+    "@types/jasmine": "4.0.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "karma": "6.3.20",
+    "karma-coverage": "2.2.0",
+    "karma-jasmine": "4.0.1",
+    "karma-nativescript-launcher": "0.4.0",
+    "nativescript-dev-appium": "^6.1.3",
+    "nyc": "15.1.0",
+    "typescript": "~4.5.5"
+  },
+  "scripts": {
+    "e2e": "node ./node_modules/nativescript-dev-appium/check-dev-deps.js &&  tsc -p e2e  &&  jasmine --config=./e2e/config/jasmine.json ",
+    "e2e-watch": "tsc -p e2e --watch"
+  }
+}

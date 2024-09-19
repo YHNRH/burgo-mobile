@@ -1,30 +1,26 @@
-import { Injectable } from '@angular/core'
 import { Http, ObservableArray } from '@nativescript/core'
-import { getString } from '@nativescript/core/application-settings'
-import { valueFieldProperty } from '@nativescript/core/ui/list-picker/list-picker-common'
-import { Relay } from '../models/relayModel'
-
+import { Relay } from '../models/relay'
 import { RelayVM } from './relayVM'
-import { DbHelper } from '@/app/dal/dbHelper'
+import { Config } from '../common/config'
 import { RadListView } from 'nativescript-ui-listview'
 
 
 export class RelaysVM {
 
   relays:ObservableArray<RelayVM> = new ObservableArray();
-  //private db:DbHelper
   container: RadListView
-  constructor(//db:DbHelper,
-     container){
-    //this.db = db;
+  constructor(container: RadListView){
     this.container = container
   }
+
+
   refresh(){
     this.relays.splice(0)
     Http.request({
       method: 'GET',
-      url:'http://burgo.sarkofiton.keenetic.link/api/get'
+      url: Config.url + 'api/getudp'
     }).then(response =>{
+      console.dir(response)
       var result = response.content.toJSON()
       result.forEach(relay => {
         let vm = new RelayVM(Relay.fromJson(relay));
@@ -43,12 +39,9 @@ export class RelaysVM {
       // this.model.notifyPropertyChange("","")
     }).catch(e => {
       console.log(e)
-
-      var a = 2
       //this.model.status = Status.UNDEFINED
      // this.model.notify({eventName:"stateChange"});
     })
-
     //let result = this.db.select("relays")
 
   }

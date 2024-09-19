@@ -1,9 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core'
+import { Component } from '@angular/core'
 
 import { RouterExtensions } from '@nativescript/angular'
-import { confirm, FlexboxLayout, Label, TextField } from '@nativescript/core';
+import { confirm, FlexboxLayout, TextField } from '@nativescript/core';
 import { RelayVM } from '~/app/viewModels/relayVM';
-import { RelayView } from '~/app/views/relayView/relayView';
 
 @Component({
   selector: 'edit',
@@ -30,9 +29,6 @@ export class EditComponent {
     this.urlELabel   = this.page.getViewById<TextField>('urlE');
     this.urlDLabel   = this.page.getViewById<TextField>('urlD');
     this.nameLabel.text    = this.vm.model.name
-    this.urlStLabel.text   = this.vm.model.urlSt
-    this.urlELabel.text    = this.vm.model.urlE
-    this.urlDLabel.text    = this.vm.model.urlD
   }
 
   delete(){
@@ -46,9 +42,6 @@ export class EditComponent {
 
   edit(){
     this.vm.model.name = this.nameLabel.text
-    this.vm.model.urlSt = this.urlStLabel.text
-    this.vm.model.urlE = this.urlELabel.text
-    this.vm.model.urlD = this.urlDLabel.text
     this.vm.edit()
     this.router.back()
   }

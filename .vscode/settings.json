@@ -1,12 +1,12 @@
 {
     "NativescriptExtend.fileAssociations": [
         {
-            "systemId": "/home/lasas/Desktop/diplom/smartHome/schema/tns.xsd",
+            "systemId": "/home/lasas/Desktop/burgo/burgo-mobile/schema/tns.xsd",
             "pattern": "**/**/*.xml"
         },
         {
             "systemId": "http://www.w3.org/2001/XMLSchema.xsd",
-            "pattern": "/home/lasas/Desktop/diplom/smartHome/schema/tns.xsd"
+            "pattern": "/home/lasas/Desktop/burgo/burgo-mobile/schema/tns.xsd"
         }
     ],
     "files.exclude": {

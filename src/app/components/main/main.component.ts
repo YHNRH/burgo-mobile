@@ -25,9 +25,7 @@ export class MainComponent {
     this.page = args.object
     this.indicator = this.page.parent.parent.getViewById("indicator")
     this.listView = this.page.getViewById("listView")
-    this.vm = new RelaysVM( 
-      //new CouchDB() as DbHelper,
-       this.listView);
+    this.vm = new RelaysVM(this.listView);
 
     this.listView.items = this.vm.relays;
     this.refresh()

@@ -1,24 +1,21 @@
-
-<ActionBar title="SmartRelay" color = "black" backgroundColor = "white">
+<ActionBar title="SmartRelay" color="black" backgroundColor="white">
   <ActionItem android.position="actionBarIfRoom" ios.position="left">
-    <ActivityIndicator id = "indicator" busy = "true"></ActivityIndicator>
+    <ActivityIndicator id="indicator" busy="true"></ActivityIndicator>
   </ActionItem>
 </ActionBar>
 
 
 
 
-<GridLayout (loaded) = "loaded($event)" backgroundColor = "white">
+<GridLayout (loaded)="loaded($event)" backgroundColor="white">
   <RadListView id="listView" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
     <ListViewGridLayout tkListViewLayout scrollDirection="Vertical" ios:itemHeight="250" dynamicItemSize="false"
       spanCount="2">
       <ng-template tkListItemTemplate let-item="item">
-
-<relay [vm]="item"></relay>
+        <relay [vm]="item"></relay>
       </ng-template>
     </ListViewGridLayout>
   </RadListView>
 
   <settings></settings>
-  <Label height="50" width = "50" backgroundColor = "red" text = "create" id ="create" (tap) = "toCreate()" verticalAlignment = "bottom" horizontalAlignment = "right"></Label>
 </GridLayout>

@@ -1,17 +1,13 @@
 import { Http } from "@nativescript/core";
-//import { DbHelper } from "../dal/dbHelper";
-import { Relay, Status } from "../models/relayModel";
+import { Relay, Status } from "../models/relay";
+import { Config } from "../common/config";
 
 export class RelayVM {
 
 
   model:Relay
-  //db:DbHelper
-  constructor(model:Relay
-    //, db:DbHelper
-    ){
+  constructor(model:Relay){
     this.model = model;
-    //this.db = db
   }
 
   delete() {
@@ -20,6 +16,16 @@ export class RelayVM {
 
   edit() { 
     //this.db.update("", this.model.dbId, this.model.toDbObject())
+    let url = Config.url;
+    url += 'api/updatedevice?Id=' + this.model.Id + '&name=' + this.model.name
+    console.log(url)
+    Http.request({
+      method: 'POST',
+      url:url
+    }).then(response =>{
+      console.dir(response)
+      
+    })
   }
 
   update() {

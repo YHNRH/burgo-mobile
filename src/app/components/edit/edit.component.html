@@ -1,11 +1,14 @@
-<ActionBar title="Edit" color = "black" backgroundColor = "white">
-<ActionItem text = "delete" ios.position="right"  android.position = "actionBarIfRoom" (tap) = "delete()"></ActionItem>
+<ActionBar title="Edit" color="black" backgroundColor="white">
+  <!-- <ActionItem text = "delete" ios.position="right"  android.position = "actionBarIfRoom" (tap) = "delete()"></ActionItem> -->
 </ActionBar>
 
-<FlexboxLayout flexDirection="column"   justifyContent="space-around" (loaded) = "loaded($event)">
-  <TextField hint = "name" id = "name"></TextField>
-  <TextField hint = "status url" id = "urlSt"></TextField>
-  <TextField hint = "enable url" id = 'urlE'></TextField>
-  <TextField hint = "disable url" id = 'urlD'></TextField>
-  <Button text = "Submit" (tap) = "edit()"></Button>
+<FlexboxLayout flexDirection="column" justifyContent="space-around" (loaded)="loaded($event)">
+  <TextField hint="name" id="name"></TextField>
+
+  <ListView id="listView" pullToRefresh="true">
+    <!-- <ng-template tkListItemTemplate let-item="item">
+       <relay [vm]="item"></relay> 
+    </ng-template> -->
+  </ListView>
+  <Button text="Submit" (tap)="edit()"></Button>
 </FlexboxLayout>

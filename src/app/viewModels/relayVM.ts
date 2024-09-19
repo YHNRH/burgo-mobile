@@ -65,24 +65,22 @@ export class RelayVM {
   }
 
   switchState(){
-    let url = ""
+    let url = Config.url;
     switch(this.model.status){
       case Status.UNDEFINED:
-        url = 'http://' + this.model.urlSt
       break;
       case Status.ON:
-        url = 'http://' + this.model.urlD + '/RELAY=OFF'
+        url += 'api/switchstate?Id='+this.model.Id+'&RELAY=OFF'
       break;
       case Status.OFF:
-        url = 'http://' + this.model.urlE + '/RELAY=ON'
+        url += 'api/switchstate?Id='+this.model.Id+'&RELAY=ON'
       break;
     }
-    console.dir('test5')
       Http.request({
-      method: 'GET',
+      method: 'POST',
       url:url
     }).then(response =>{
-      switch(response.content.toJSON().status){
+      switch(JSON.parse(response.content.toJSON()).status){
         case 'OFF':
           this.model.status = Status.OFF
         break;
